@@ -25,6 +25,6 @@
     "arduino --verify --board arduino:avr:uno $PWD/examples/Log/Log.ino"
   ],
   "group": "stable",
-  "dist": "precise",
+  "dist": "trusty",
   "os": "linux"
 }
