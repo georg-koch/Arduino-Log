@@ -35,7 +35,10 @@ void Logging::init(int level, long baud)
 {
   _baud = baud;
   Serial.begin(_baud);
-  Log.init(_level, &Serial, true);
+  while (!Serial && !Serial.available())
+  {
+  }
+  init(level, &Serial, true);
 }
 
 void Logging::init(int level, Print *logOutput, bool showLevel)

@@ -245,7 +245,7 @@ class Logging
 				_prefix(_logOutput);
 			if (_showLevel)
 			{
-				char levels[] = "FEWNTV";
+				char levels[] = "FEWDTV";
 				_logOutput->print(levels[level - 1]);
 				_logOutput->print(": ");
 			}
