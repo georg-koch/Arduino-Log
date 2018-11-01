@@ -1,16 +1,6 @@
 /*
-    _   ___ ___  _   _ ___ _  _  ___  _    ___   ___
-   /_\ | _ \   \| | | |_ _| \| |/ _ \| |  / _ \ / __|
-  / _ \|   / |) | |_| || || .` | (_) | |_| (_) | (_ |
- /_/ \_\_|_\___/ \___/|___|_|\_|\___/|____\___/ \___|
-
-  Log library for Arduino
-  version 1.0.0
-  https://github.com/thijse/Arduino-Log
-
-Licensed under the MIT License <http://opensource.org/licenses/MIT>.
-
-*/
+ * MIT License <http://opensource.org/licenses/MIT>.
+ */
 
 #ifndef LOGGING_H
 #define LOGGING_H

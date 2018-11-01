@@ -142,7 +142,7 @@ in `Logging.h`. This may significantly reduce your project size.
 ## Credit
 
 Based on library by 
-* [/mrRobot62](https://github.com/mrRobot62)  
+* [thijse](https://github.com/thijse/)
 
 Bugfixes & features by
 * [rahuldeo2047](https://github.com/rahuldeo2047)

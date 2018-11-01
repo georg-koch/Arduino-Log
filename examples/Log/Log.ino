@@ -1,9 +1,8 @@
-#include <ArduinoLog.h>
+/*
+ * This example sketch shows most of the features of the ArduinoLog library
+ */
 
-/*!
-* This example sketch shows most of the features of the ArduinoLog library
-*
-*/
+#include <ArduinoLog.h>
 
 int intValue1, intValue2;
 long longValue1, longValue2;
