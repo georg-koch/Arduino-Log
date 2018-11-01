@@ -88,8 +88,6 @@ example
     Log.begin(LOG_LEVEL_ERROR, &Serial, true);
 ```
 
-if you want to fully remove all logging code, uncomment `#define DISABLE_LOGGING` in `ArduinoLog.h`, this may significantly reduce your sketch/library size.
-
 ### Log events
 
 The library allows you to log on different levels by the following functions
@@ -124,20 +122,16 @@ The format string may come from flash memory.
 examples
 
 ```c++
-    Log.fatal   (F("Log as Fatal   with string value from Flash   : %s"CR    ) , "value"     );
-    Log.error   (  "Log as Error   with binary values             : %b, %B"CR  , 23  , 345808);
-    Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
-    Log.debug   (  "Log as Debug   with hexadecimal values        : %x, %X"CR  , 21  , 348972);
-    Log.verbose (F("Log as Verbose with bool value from Flash     : %t, %T"CR) , true, false );
+    Log.fatal   (F("Log as Fatal   with string value from Flash   : %s"     CR) , "value"     );
+    Log.error   (  "Log as Error   with binary values             : %b, %B" CR  , 23  , 345808);
+    Log.warning (F("Log as Warning with integer values from Flash : %d, %d" CR) , 34  , 799870);
+    Log.debug   (  "Log as Debug   with hexadecimal values        : %x, %X" CR  , 21  , 348972);
+    Log.verbose (F("Log as Verbose with bool value from Flash     : %t, %T" CR) , true, false );
 ```
 
 ### Disable library
 
-(if your code is completely tested) all logging code can be compiled out. Do this by uncommenting  
-```c++
-#define DISABLE_LOGGING 
-```
-in `Logging.h`. This may significantly reduce your project size.
+If you want to fully remove all logging code, add build flag `DISABLE_LOGGING=1`.This may significantly reduce your project size.
 
 ## Credit
 
