@@ -26,14 +26,12 @@ ArduinoLog is a minimalistic framework to help the programmer output log stateme
 This package has been published to the Arduino & PlatformIO package managers, but you can also download it from GitHub. 
 
 - By directly loading fetching the Archive from GitHub: 
- 1. Go to [https://github.com/thijse/Arduino-Log](https://github.com/thijse/Arduino-Log)
+ 1. Go to [https://github.com/georg-koch/Arduino-Log](https://github.com/georg-koch/Arduino-Log)
  2. Click the DOWNLOAD ZIP button in the panel on the
  3. Rename the uncompressed folder **Arduino-Log-master** to **Arduino-Log**.
  4. You may need to create the libraries subfolder if its your first library.  
  5. Place the **Arduino-Log** library folder in your **<arduinosketchfolder>/libraries/** folder. 
  5. Restart the IDE.
- 6. For more information, [read this extended manual](http://thijs.elenbaas.net/2012/07/installing-an-arduino-library/)
-
 
 ## Quick start
 
@@ -41,8 +39,17 @@ This package has been published to the Arduino & PlatformIO package managers, bu
     Serial.begin(9600);
     
     // Initialize with log level and log output. 
-    Log.begin   (LOG_LEVEL_VERBOSE, &Serial);
+    Log.init    (LOG_LEVEL_VERBOSE, &Serial);
     
+    // Start logging text and formatted values
+    Log.error   (  "Log as Error   with binary values             : %b, %B"CR  , 23  , 345808);
+    Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
+```
+or, to use serial printer
+```
+    // Initialize with log level and baud rate. 
+    Log.init    (LOG_LEVEL_VERBOSE, 9600);
+
     // Start logging text and formatted values
     Log.error   (  "Log as Error   with binary values             : %b, %B"CR  , 23  , 345808);
     Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
@@ -58,8 +65,9 @@ The log library needs to be initialized with the log level of messages to show a
 Optionally, you can indicate whether to show the log type (error, debug, etc) for each line.
 
 ```
-begin(int level, Print* logOutput, bool showLevel)
-begin(int level, Print* logOutput)
+init(int level, Print* logOutput, bool showLevel)
+init(int level, Print* logOutput)
+init(int level, long baud)
 ```
 
 The loglevels available are
@@ -69,8 +77,8 @@ The loglevels available are
 * 1 - LOG_LEVEL_FATAL      fatal errors 
 * 2 - LOG_LEVEL_ERROR      all errors  
 * 3 - LOG_LEVEL_WARNING    errors, and warnings 
-* 4 - LOG_LEVEL_NOTICE     errors, warnings and notices 
-* 5 - LOG_LEVEL_TRACE      errors, warnings, notices & traces 
+* 4 - LOG_LEVEL_DEBUG      errors, warnings and debug 
+* 5 - LOG_LEVEL_TRACE      errors, warnings, debug & traces 
 * 6 - LOG_LEVEL_VERBOSE    all 
 ```
 
@@ -90,7 +98,7 @@ The library allows you to log on different levels by the following functions
 void fatal   (const char *format, va_list logVariables); 
 void error   (const char *format, va_list logVariables);
 void warning (const char *format, va_list logVariables);
-void notice  (const char *format, va_list logVariables);
+void debug   (const char *format, va_list logVariables);
 void trace   (const char *format, va_list logVariables);
 void verbose (const char *format, va_list logVariables);
 ```
@@ -119,7 +127,7 @@ examples
     Log.fatal   (F("Log as Fatal   with string value from Flash   : %s"CR    ) , "value"     );
     Log.error   (  "Log as Error   with binary values             : %b, %B"CR  , 23  , 345808);
     Log.warning (F("Log as Warning with integer values from Flash : %d, %d"CR) , 34  , 799870);
-    Log.notice  (  "Log as Notice  with hexadecimal values        : %x, %X"CR  , 21  , 348972);
+    Log.debug   (  "Log as Debug   with hexadecimal values        : %x, %X"CR  , 21  , 348972);
     Log.verbose (F("Log as Verbose with bool value from Flash     : %t, %T"CR) , true, false );
 ```
 

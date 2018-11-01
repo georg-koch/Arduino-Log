@@ -15,19 +15,13 @@ double doubleValue;
 
 void setup()
 {
-  // Set up serial port and wait until connected
-  Serial.begin(9600);
-  while (!Serial && !Serial.available())
-  {
-  }
-  randomSeed(analogRead(0));
   // Pass log level, whether to show log level, and print interface.
   // Available levels are:
   // LOG_LEVEL_SILENT, LOG_LEVEL_FATAL, LOG_LEVEL_ERROR, LOG_LEVEL_WARNING, LOG_LEVEL_DEBUG, LOG_LEVEL_TRACE, LOG_LEVEL_VERBOSE
   // Note: if you want to fully remove all logging code, uncomment #define DISABLE_LOGGING in Logging.h
   //       this will significantly reduce your project size
 
-  Log.init(LOG_LEVEL_VERBOSE, &Serial);
+  Log.init(LOG_LEVEL_VERBOSE, 9600);
   //Log.setPrefix(printTimestamp); // Uncomment to get timestamps as prefix
   //Log.setSuffix(printNewline); // Uncomment to get newline as suffix
 

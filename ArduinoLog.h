@@ -34,7 +34,7 @@ typedef void (*printfunction)(Print *);
 #define LOG_LEVEL_FATAL 1
 #define LOG_LEVEL_ERROR 2
 #define LOG_LEVEL_WARNING 3
-#define LOG_LEVEL_NOTICE 4
+#define LOG_LEVEL_DEBUG 4
 #define LOG_LEVEL_TRACE 5
 #define LOG_LEVEL_VERBOSE 6
 
@@ -72,8 +72,8 @@ typedef void (*printfunction)(Print *);
 * 1 - LOG_LEVEL_FATAL      fatal errors
 * 2 - LOG_LEVEL_ERROR      all errors
 * 3 - LOG_LEVEL_WARNING    errors and warnings
-* 4 - LOG_LEVEL_NOTICE     errors, warnings and notices
-* 5 - LOG_LEVEL_TRACE      errors, warnings, notices, traces
+* 4 - LOG_LEVEL_DEBUG      errors, warnings and debug
+* 5 - LOG_LEVEL_TRACE      errors, warnings, debug, traces
 * 6 - LOG_LEVEL_VERBOSE    all
 */
 
@@ -176,10 +176,10 @@ class Logging
 #endif
 	}
 	/**
-	* Output a notice message. Output message contains
+	* Output a debug message. Output message contains
 	* N: followed by original message
-	* Notice messages are printed out at
-	* loglevels >= LOG_LEVEL_NOTICE
+	* Debug messages are printed out at
+	* loglevels >= LOG_LEVEL_DEBUG
 	*
 	* @param msg format string to output
 	* @param ... any number of variables
@@ -187,10 +187,10 @@ class Logging
 	*/
 
 	template <class T, typename... Args>
-	void notice(T msg, Args... args)
+	void debug(T msg, Args... args)
 	{
 #ifndef DISABLE_LOGGING
-		printLevel(LOG_LEVEL_NOTICE, msg, args...);
+		printLevel(LOG_LEVEL_DEBUG, msg, args...);
 #endif
 	}
 	/**
