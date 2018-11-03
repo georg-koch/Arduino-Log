@@ -12,6 +12,19 @@ String stringValue1 = "this is a string";
 float floatValue;
 double doubleValue;
 
+void printTimestamp(Print *_logOutput)
+{
+  char c[12];
+  int m = sprintf(c, "%10lu ", millis());
+  _logOutput->print(c);
+}
+
+void printNewline(Print *_logOutput)
+{
+  _logOutput->print('\n');
+}
+
+
 void setup()
 {
   // Set up serial port and wait until connected
@@ -74,14 +87,3 @@ void loop()
   delay(5000);
 }
 
-void printTimestamp(Print *_logOutput)
-{
-  char c[12];
-  int m = sprintf(c, "%10lu ", millis());
-  _logOutput->print(c);
-}
-
-void printNewline(Print *_logOutput)
-{
-  _logOutput->print('\n');
-}
