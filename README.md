@@ -2,7 +2,6 @@ ArduinoLog - C++ Log library for Arduino devices
 ====================
 [![Build Status](https://travis-ci.org/georg-koch/Arduino-Log.svg?branch=master)](https://travis-ci.org/georg-koch/Arduino-Log)
 [![License](https://img.shields.io/badge/license-MIT%20License-blue.svg)](http://doge.mit-license.org)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgeorg-koch%2FArduino-Log.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fgeorg-koch%2FArduino-Log?ref=badge_shield)
 
 *An minimalistic Logging framework  for Arduino-compatible embedded systems.*
 
